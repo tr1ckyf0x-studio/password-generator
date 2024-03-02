@@ -3,6 +3,12 @@ import ArgumentParser
 @main
 struct PasswordGeneratorCommand: ParsableCommand {
 
+    public static let configuration = CommandConfiguration(
+        commandName: "pwgen",
+        abstract: "Generates password",
+        version: "0.1.0"
+    )
+
     @Option(name: [.short, .long], help: "Length of the password")
     var length: UInt
 
