@@ -12,10 +12,13 @@ struct PasswordGeneratorCommand: ParsableCommand {
     @Option(name: [.short, .long], help: "Length of the password")
     var length: UInt
 
+    @Option
+    var symbolTypes: [SymbolType] = [.lowerCaseLetters, .upperCaseLetters, .numbers, .specialSymbols]
+
     func run() throws {
         let passwordGenerator = PasswordGenerator()
         let password = passwordGenerator.generatePassword(
-            symbolTypes: [.lowerCaseLetters, .upperCaseLetters, .numbers, .specialSymbols],
+            symbolTypes: symbolTypes,
             length: length
         )
 
